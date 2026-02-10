@@ -52,35 +52,9 @@
 <section class="products">
   <h2>Popular Sneakers</h2>
 
-  <div class="product-grid">
+  <div class="product-grid" id="product-grid">
 
-    <div class="product">
-      <img src="/static/assets/images/shoe1.webp" alt="Nike Air Force 1">
-      <h3>Nike Air Force 1</h3>
-      <p>₹11,999</p>
-      <button>Sold Out</button>
-    </div>
-
-    <div class="product">
-      <img src="/static/assets/images/shoe2.webp" alt="Chuck Taylor">
-      <h3>CHUCK TAYLOR HEARTS</h3>
-      <p>₹5,999</p>
-      <button>Sold Out</button>
-    </div>
-
-    <div class="product">
-      <img src="/static/assets/images/shoe4.webp" alt="Dunk Low">
-      <h3>DUNK LOW RETRO SE</h3>
-      <p>₹10,795</p>
-      <button>Sold Out</button>
-    </div>
-
-    <div class="product">
-      <img src="/static/assets/images/shoe3.webp" alt="New Balance">
-      <h3>New Balance 1906</h3>
-      <p>₹16,499</p>
-      <button>Sold Out</button>
-    </div>
+    
     
   </div>
 </section>
@@ -91,7 +65,7 @@
   <a href="/api/v1/priority-access" style="display:none;">Admin API Access</a>
 </footer>
 
-<script src="/static/script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

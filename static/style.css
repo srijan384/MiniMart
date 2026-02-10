@@ -7,12 +7,13 @@
   
 body {
     /* 90% pushes the image to the right side */
-    background: url('/static/assets/images/slide1.jpg') no-repeat 90% center fixed;
+    /* background: url('/static/assets/images/slide1.jpg') no-repeat 90% center fixed; */
     background-size: cover;
     color: #111;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #FFFCFB;
 }
   
 /* HEADER */
@@ -66,8 +67,11 @@ nav a:hover {
 /* FORCE LAYOUT FIX */
 .hero {
     height: 80vh;
-    width: 60%; 
-    
+    width: 100%; 
+    background-image: url('/static/assets/images/slide1.jpg');
+    background-size: cover;        /* makes image fill area */
+    background-position: center;   /* centers image */
+    background-repeat: no-repeat;  /* prevents tiling */
     display: flex;
     flex-direction: column;
     justify-content: center;

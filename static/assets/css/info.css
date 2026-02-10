@@ -1,0 +1,113 @@
+.body{
+    background-color:#FFFCFB;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.1); /* Mostly transparent */
+    backdrop-filter: blur(10px);          /* Blurs the image behind it */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Stick to top */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+  
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding:0px;
+}
+  
+.logo img {
+    width: 100px;
+    height: auto;
+}
+  
+nav a {
+    color: black;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+}
+  
+nav a:hover {
+    text-decoration: underline;
+}
+  
+.icons {
+    font-size: 18px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 5px;
+    top: 100%; /* Positions it right below the button */
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black !important; /* Force black text for menu items */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #ff6600 !important; /* Orange on hover */
+}
+
+/* Show the menu when hovering over the "dropdown" container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.name{
+    margin-top:25px;
+    text-align: center;
+}
+
+.prodimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.back{
+    display:block;
+    margin:15px;
+    color:black;
+    text-decoration:none;
+}
+.details{
+    margin-top:50px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.details .desc{
+    align-items: center;
+    font-size: 1.1rem;
+}

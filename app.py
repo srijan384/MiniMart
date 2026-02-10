@@ -1,6 +1,7 @@
 import time
 import random
 from faker import Faker
+import requests
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 
 app = Flask(__name__)
@@ -9,6 +10,7 @@ fake = Faker()
 
 # GLOBAL MEMORY
 BLOCKED_IPS = {}
+SNEAKER_API = "https://api.sampleapis.com/sneakers/sneakers"
 
 def get_client_ip():
     ip = request.remote_addr
@@ -116,5 +118,49 @@ def stats():
     fake_count = sum(d["fake_served"] for d in BLOCKED_IPS.values())
     return jsonify({"active_bots": bot_count, "fake_records": fake_count})
 
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+
+# --- BACKEND API PROXY ---
+@app.route("/api/sneakers")
+def api_sneakers():
+    try:
+        url = "https://dummyjson.com/products/category/mens-shoes"
+        response = requests.get(url, timeout=5)
+        data = response.json()
+
+        sneakers = []
+
+        for item in data.get("products", [])[:20]:
+            sneakers.append({
+    "id": item.get("id"),
+    "name": item.get("title"),
+    "price": item.get("price"),
+    "image": item.get("thumbnail")
+})
+
+        return jsonify(sneakers)
+
+    except Exception as e:
+        print("Sneaker API failed:", e)
+        return jsonify([])
+
+
+# --- PRODUCT DETAIL PAGE ---
+@app.route("/product/<int:product_id>")
+def product_detail(product_id):
+    try:
+        url = f"https://dummyjson.com/products/{product_id}"
+        response = requests.get(url, timeout=5)
+        product = response.json()
+
+        return render_template("info.html", product=product)
+
+    except Exception as e:
+        print("Product fetch error:", e)
+        return "Product not found", 404
+
+
+# ALWAYS KEEP LAST
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
